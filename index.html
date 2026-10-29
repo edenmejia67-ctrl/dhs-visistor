@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dapdap High School – Visitor Registration</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0c2a63"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>:root{--bg:#eef3fa;--card:#fff;--ink:#0f1f3d;--mut:#5b6b84;--line:#dbe4f0;--nav:#0c2a63;--pri:#1c62e0;--ok:#dcf3e5;--okt:#17803f;--no:#e8edf4;--not:#59687e;--new:#fdeeee;--newb:#f2b8b8;--red:#d93030;--sh:0 1px 2px rgba(15,31,61,.06),0 4px 14px -8px rgba(15,31,61,.14);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:13px/1.5 "Plus Jakarta Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+#root{min-height:100%}h1{font-size:23px;font-weight:800;letter-spacing:-.02em;margin:0 0 2px}h2{margin:0;font-size:15px;font-weight:700;letter-spacing:-.01em}p{margin:0}.mut{color:var(--mut)}
+:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
+.i{width:18px;height:18px;flex:none}
+.btn{background:var(--pri);color:#fff;border:1.5px solid var(--pri);border-radius:10px;padding:9px 20px;font:inherit;font-weight:600;cursor:pointer;display:inline-flex;gap:8px;align-items:center;justify-content:center;transition:background .15s}
+.btn:hover{background:#174fb8}.btn:active{transform:translateY(1px)}.btn.sm{padding:3px 10px;font-size:11px;border-radius:8px}.btn.ghost{background:#fff;color:var(--pri);border-color:#b9cbea}.btn.ghost:hover{background:#f0f5fe}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#f6f9fd;color:var(--ink);font:inherit;transition:border-color .15s,background .15s}
+input:hover,select:hover{border-color:#b9cbea}input:focus,select:focus{background:#fff;border-color:var(--pri);outline:0;box-shadow:0 0 0 3px rgba(28,98,224,.15)}
+input::placeholder{color:#8493aa}label{display:block;font-weight:600;font-size:12px;margin:0 0 6px}label i{color:var(--red);font-style:normal}
+.f{position:relative}.f .i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#5b6b84;width:16px;height:16px}.f input{padding-left:38px}
+.f.r .i{left:auto;right:12px}.f.r input{padding:10px 38px 10px 12px}.eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:none;padding:8px;cursor:pointer;color:#5b6b84;display:grid}.eye .i{position:static;transform:none}
+.login{display:flex;min-height:100%;background:var(--card)}
+.hero{flex:1.1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23fff' stroke-opacity='.09'%3E%3Ccircle cx='340' cy='60' r='110'/%3E%3Ccircle cx='340' cy='60' r='170'/%3E%3Ccircle cx='340' cy='60' r='230'/%3E%3Ccircle cx='50' cy='370' r='90'/%3E%3Ccircle cx='50' cy='370' r='150'/%3E%3C/svg%3E") center/cover no-repeat,var(--nav);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;border-radius:0 28px 28px 0}
+.hero svg{width:140px;height:140px;margin-bottom:20px}.hero h2{font-size:30px;font-weight:800;letter-spacing:-.02em}.hero .big{font-size:17px;font-weight:500;margin-top:4px;opacity:.95}.hero .tg{margin-top:28px;font-size:13px;opacity:.8}
+.lf{flex:1;display:grid;place-items:center;padding:24px}.lf form{width:100%;max-width:300px;display:grid;gap:14px;text-align:center}.lf h2{font-size:24px;font-weight:800}.lf .btn{padding:12px}
+.err{color:var(--red);font-size:12px}.lnk{color:var(--pri);cursor:pointer;font-size:12px;font-weight:600}
+.app{display:flex;min-height:100%}
+.side{width:216px;flex:none;background:var(--nav);color:#fff;padding:18px 10px;display:flex;flex-direction:column;gap:4px;border-radius:0 20px 20px 0}
+.brand{display:flex;gap:10px;align-items:center;margin:0 6px 20px;font-weight:700;font-size:13px;line-height:1.25}.brand svg{width:36px;height:36px;flex:none}.brand small{display:block;font-size:9.5px;opacity:.7;font-weight:400;margin-top:2px}
+.ni{display:flex;gap:12px;align-items:center;width:100%;padding:11px 14px;border:0;background:none;border-radius:10px;cursor:pointer;color:#c9d7f2;font:inherit;font-weight:500;text-align:left;transition:background .15s,color .15s}
+.ni:hover{background:rgba(255,255,255,.08);color:#fff}.ni.on{background:var(--pri);color:#fff;font-weight:600}.lo{margin-top:auto}
+.dot{background:var(--red);color:#fff;border-radius:99px;font-size:10px;font-weight:700;padding:0 6px;margin-left:auto}
+main{flex:1;min-width:0;padding:14px 28px 28px}
+.top{display:flex;justify-content:flex-end;align-items:center;gap:18px;color:var(--mut);font-size:11px;margin-bottom:12px}.top span{display:flex;gap:6px;align-items:center}.top .i{width:14px;height:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--sh)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0 22px}.stats .card{padding:16px}
+.stat{display:flex;gap:14px;align-items:center}.stat b{font-size:24px;font-weight:800;display:block;line-height:1.15;letter-spacing:-.02em}.stat span{font-size:11.5px;font-weight:600}.stat small{font-size:10.5px}
+.ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;color:#fff}.ic .i{width:22px;height:22px}
+.tw{overflow-x:auto;margin-top:10px}table{width:100%;border-collapse:collapse;min-width:560px}
+th{text-align:left;font-size:11px;font-weight:700;color:#3b4a66;background:#eef3fa;padding:11px 12px}th:first-child{border-radius:8px 0 0 8px}th:last-child{border-radius:0 8px 8px 0}
+td{padding:10px 12px;border-bottom:1px solid #e9eff7;font-size:12px}tr:hover td{background:#f6f9fe}
+.av{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;font-size:10px;font-weight:700;color:var(--nav);margin-right:10px;vertical-align:middle}
+.b{display:inline-flex;align-items:center;padding:2px 10px;border-radius:6px;font-size:11px;font-weight:600}.b::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px}
+.b.in{background:var(--ok);color:var(--okt)}.b.out{background:var(--no);color:var(--not)}.b.nw,.b.rd{border-radius:99px;color:#fff}.b.nw::before,.b.rd::before{display:none}.b.nw{background:var(--red)}.b.rd{background:var(--pri)}
+.regw{display:grid;grid-template-columns:1fr 250px;gap:16px;margin-top:18px;align-items:start}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;margin:18px 0}.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:none}
+.q{display:grid;gap:12px;margin-top:16px}.q .btn{width:100%;padding:13px}
+.filt{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;align-items:center}.filt .f{flex:1;max-width:340px;min-width:200px}
+.rng{margin-left:auto;display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:0 10px;color:var(--mut)}.rng .i{width:15px;height:15px}.rng input{border:0;width:auto;padding:9px 2px;background:transparent;box-shadow:none}
+.nt{display:flex;gap:14px;align-items:center;padding:15px 16px;border:1px solid #cfe0fb;border-radius:12px;background:#fff;margin-bottom:10px;cursor:pointer;transition:border-color .15s}.nt:hover{border-color:var(--pri)}
+.nt.new{background:var(--new);border-color:var(--newb)}.nt.new:hover{border-color:var(--red)}.nt .nm{color:var(--pri)}.nt.new .nm{color:var(--red)}.nt .r{margin-left:auto;text-align:right;display:grid;gap:6px;font-size:11px;justify-items:end}
+.bell{width:38px;height:38px;border-radius:12px;background:var(--pri);color:#fff;display:grid;place-items:center;flex:none}.nt.new .bell{background:var(--red)}
+.ov{position:fixed;inset:0;background:rgba(10,25,60,.5);display:grid;place-items:center;z-index:10;padding:env(safe-area-inset-top,0px) 12px env(safe-area-inset-bottom,0px)}
+.md{background:#fff;border-radius:18px;width:min(440px,100%);padding:18px;display:grid;gap:16px;box-shadow:0 24px 50px -20px rgba(8,20,50,.5)}.mh{display:flex;gap:14px;align-items:center;background:#eef4ff;border-radius:12px;padding:14px}.mh b{font-size:15px}
+.md dl{display:grid;grid-template-columns:120px 1fr;gap:8px;margin:0;font-size:13px}.md dt{color:var(--mut)}.md dd{margin:0;font-weight:600}.md small{text-align:center}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--nav);color:#fff;padding:12px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%;z-index:11}#toast.on{opacity:1}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:820px){.login,.app{flex-direction:column}.hero{border-radius:0 0 24px 24px;padding:28px}.hero svg{width:96px;height:96px}
+.side{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));width:auto;flex-direction:row;padding:6px;gap:2px;border-radius:20px;z-index:5;box-shadow:0 10px 26px -10px rgba(8,26,61,.6)}
+.brand{display:none}.ni{width:auto;flex:none;padding:10px 12px}.ni:not(.on) span{display:none}.lo{margin:0 0 0 auto}
+main{padding:12px 14px calc(96px + env(safe-area-inset-bottom,0px))}.regw,.g2{grid-template-columns:1fr}.rng{margin-left:0}#toast{bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
+.lg{width:var(--s,40px);height:var(--s,40px);border-radius:50%;overflow:hidden;background:#05070f;flex:none;display:block;box-shadow:0 0 0 2px rgba(255,255,255,.85)}.lg img{width:100%;height:100%;object-fit:cover;transform:scale(1.5);transform-origin:48% 53%;display:block}.hero .lg{margin-bottom:20px}
+.info,.warn{border-radius:10px;padding:10px 12px;font-size:12px;margin:0 0 14px;border:1px solid}.info{background:#eaf1fd;border-color:#c5d6f5;color:#1d3b78}.warn{background:#fff4d9;border-color:#f0c869;color:#6b4300;font-weight:600}
+.b.wa{background:#fff1d6;color:#8a5300}.b.er{background:#fde6e6;color:#b42323}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.chip{border:1px solid var(--line);background:#fff;border-radius:99px;padding:5px 11px;font:inherit;font-size:11px;font-weight:600;color:var(--nav);cursor:pointer}.chip:hover{border-color:var(--pri)}
+.demo{border:1px dashed #b9cbea;border-radius:12px;padding:12px;font-size:11.5px;text-align:left;display:grid;gap:8px;background:#f6f9fd}
+.ib{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px;cursor:pointer;color:var(--nav);display:inline-grid}.ib:hover{border-color:var(--pri);color:var(--pri)}.ib.d:hover{border-color:var(--red);color:var(--red)}.act{white-space:nowrap}.act .ib{margin-right:4px}
+code{font:12px ui-monospace,Menlo,Consolas,monospace;background:#eef3fa;padding:2px 6px;border-radius:6px;word-break:break-all}.hid{display:none}.md.wide{max-height:92%;overflow:auto}.nt small{display:block}
+@media(max-width:820px){.hero .lg{width:96px;height:96px}}
+#root{display:flex;flex-direction:column}.login,.app{flex:1;min-height:0}.b+small{display:block;margin-top:2px}
+.calw{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:16px;margin-top:18px;align-items:start}
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.cg small{color:var(--mut);font-weight:700;padding:4px 0}
+.cd{position:relative;aspect-ratio:1;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer;font:inherit;color:var(--ink);display:grid;place-items:center;padding:0}
+.cd:hover{border-color:var(--pri)}.cd.td{border-color:var(--pri);font-weight:800}.cd.sel{background:var(--pri);color:#fff;border-color:var(--pri)}
+.cd i{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);font-style:normal;font-size:9px;font-weight:700;background:#e4edff;color:var(--nav);border-radius:99px;padding:0 6px;line-height:14px}.cd.sel i{background:#fff}
+.calw>*{min-width:0}
+@media(max-width:820px){.calw{grid-template-columns:minmax(0,1fr)}}
+.urg{background:#fde6e6;border:1px solid #f2b8b8;color:#8f1d1d;border-radius:10px;padding:10px 12px;font-weight:600;margin:0 0 14px;cursor:pointer}.nt.inb{cursor:default;align-items:flex-start}
+</style></head>
+<body><div id="root"></div><div id="toast"></div><div id="mo"></div>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const TZ="Asia/Manila",PUR=["meeting","document","parent","personal","delivery","other"];
+const T={en:{sys:"Security Visitor Notification System",tag:"Safer School. Better Communication.",wb:"Welcome Back!",lp:"Please log in to your account",user:"Username",pass:"Password",login:"Login",forgot:"Forgot your password?",bad:"Incorrect username or password.",hint:"Demo login: guard / guard123",
+dashboard:"Dashboard",register:"Register Visitor",records:"Visitor Records",notifs:"Notifications",settings:"Settings",logout:"Logout",welcome:"Welcome, Security Personnel!",
+s1:"Today’s Visitors",s1s:"Total registered visitors",s2:"On Going",s2s:"Currently inside the school",s3:"Pending Notifications",s3s:"Needs attention",s4:"Total Records",s4s:"All-time visitor records",recent:"Recent Visitors",
+name:"Name",purpose:"Purpose",person:"Person to Visit",tin:"Time In",tout:"Time Out",status:"Status",date:"Date",contact:"Contact Number",inside:"Inside",out:"Out",act:"Action",co:"Check out",
+vi:"Visitor Information",fn:"Full Name",fnp:"Enter visitor’s full name",cnp:"Enter phone number",pv:"Purpose of Visit",sp:"Select purpose",ptv:"Person to Visit",spp:"Select teacher or office",reg:"Register",clr:"Clear",qa:"Quick Actions",qr:"Scan QR Code",vr:"View Visitor Records",
+sq:"Search by name, purpose, or date",search:"Search",from:"From",to:"To",none:"No records found.",arrival:"Visitor Arrival",nw:"New",rd:"Read",all:"Mark all as read",
+msg:(n,p)=>`${n} has arrived and is waiting for ${p}.`,lang:"Language",langd:"Choose the interface language.",wipe:"Reset demo data",wipeq:"Reset all records to the sample data?",soon:"Coming soon.",okReg:"Registered. Notification sent to {p}.",okOut:"Time out recorded.",
+p_meeting:"Meeting",p_document:"Document Delivery",p_parent:"Parent",p_personal:"Personal",p_delivery:"Delivery",p_other:"Other"},
+tl:{sys:"Security Visitor Notification System",tag:"Ligtas na Paaralan. Mas Mabuting Komunikasyon.",wb:"Maligayang Pagbabalik!",lp:"Mag-log in sa iyong account",user:"Username",pass:"Password",login:"Mag-login",forgot:"Nakalimutan ang password?",bad:"Maling username o password.",hint:"Demo login: guard / guard123",
+dashboard:"Dashboard",register:"Magrehistro ng Bisita",records:"Talaan ng mga Bisita",notifs:"Mga Abiso",settings:"Mga Setting",logout:"Mag-logout",welcome:"Maligayang pagdating, Security Personnel!",
+s1:"Mga Bisita Ngayon",s1s:"Kabuuang nirehistro",s2:"Nasa Loob",s2s:"Kasalukuyang nasa paaralan",s3:"Nakabinbing Abiso",s3s:"Kailangan ng pansin",s4:"Kabuuang Talaan",s4s:"Lahat ng talaan ng bisita",recent:"Mga Kamakailang Bisita",
+name:"Pangalan",purpose:"Layunin",person:"Pupuntahan",tin:"Oras ng Pasok",tout:"Oras ng Labas",status:"Katayuan",date:"Petsa",contact:"Numero ng Telepono",inside:"Nasa Loob",out:"Lumabas",act:"Aksyon",co:"Check out",
+vi:"Impormasyon ng Bisita",fn:"Buong Pangalan",fnp:"Ilagay ang buong pangalan ng bisita",cnp:"Ilagay ang numero ng telepono",pv:"Dahilan ng Pagbisita",sp:"Pumili ng dahilan",ptv:"Pupuntahan",spp:"Pumili ng guro o opisina",reg:"Irehistro",clr:"I-clear",qa:"Mabilisang Aksyon",qr:"I-scan ang QR Code",vr:"Tingnan ang Talaan",
+sq:"Hanapin ayon sa pangalan, layunin, o petsa",search:"Hanapin",from:"Mula",to:"Hanggang",none:"Walang talaang nakita.",arrival:"Dumating ang Bisita",nw:"Bago",rd:"Nabasa",all:"Markahan lahat bilang nabasa",
+msg:(n,p)=>`Dumating na si ${n} at naghihintay kay ${p}.`,lang:"Wika",langd:"Piliin ang wika ng interface.",wipe:"I-reset ang demo data",wipeq:"I-reset ang lahat ng talaan sa sample data?",soon:"Malapit na.",okReg:"Nairehistro. Naipadala ang abiso kay {p}.",okOut:"Naitala ang oras ng labas.",
+p_meeting:"Pulong",p_document:"Paghahatid ng Dokumento",p_parent:"Magulang",p_personal:"Personal",p_delivery:"Paghahatid",p_other:"Iba pa"}};
+const I={home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>',uplus:'<circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M19 8v6M16 11h6"/>',doc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>',bell:'<path d="M6 16v-5a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21h4"/>',
+gear:'<path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/>',
+out:'<path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',ucheck:'<circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 11l2 2 4-4"/>',lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/>',
+eye:'<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',eyeoff:'<path d="M3 3l18 18M10.6 6.1A10 10 0 0112 6c6 0 9.5 6 9.5 6a17 17 0 01-3 3.7M6.6 6.7A17 17 0 002.5 12S6 18 12 18a9.7 9.7 0 004-.9"/>',
+search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',qr:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v1M14 20h1M18 18h3v3"/>'};
+Object.assign(T.en,{nt:"Visitor Arrival Notification",ntd:"You have a visitor waiting for you.",vn:"Visitor Name",ta:"Time Arrived",outs:"Outside",none:"No records found. Try another search or date range."});
+Object.assign(T.tl,{nt:"Abiso: Dumating ang Bisita",ntd:"May naghihintay na bisita para sa iyo.",vn:"Pangalan ng Bisita",ta:"Oras ng Dating",outs:"Nasa Labas",none:"Walang talaang nakita. Subukan ang ibang hanap o petsa."});
+Object.assign(I,{copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/>',trash:'<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/>',plus:'<path d="M12 5v14M5 12h14"/>',send:'<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',retry:'<path d="M3 12a9 9 0 0115-6.7L21 8M21 3v5h-5M21 12a9 9 0 01-15 6.7L3 16M3 21v-5h5"/>',users:'<circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M17 4a4 4 0 010 8M22 21c0-3-2-5-4-5.6"/>'});
+const ic=n=>`<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${I[n]}</svg>`;
+const CFG=window.DHS_CONFIG||{};
+const LOGO=s=>`<span class="lg" style="--s:${s}px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:calc(var(--s)*.28)"><b style="grid-area:1/1">DHS</b><img style="grid-area:1/1" src="dhs-logo.jpg" alt="Dapdap High School crest" onerror="this.remove()"></span>`;
+const $=s=>document.querySelector(s),iso=()=>new Date().toISOString();
+const ld=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ymd=i=>new Date(i).toLocaleDateString("en-CA",{timeZone:TZ});
+let sb=null,ch=null,LANG=ld("dhs_lang","en"),DB={fac:[],vis:[],acc:[],nt:[]},S={page:"",user:null,q:"",from:"",to:"",cal:null,day:"",wait:null,reg:false};
+const L=()=>LANG,t=k=>(T[L()]||T.en)[k]??T.en[k]??k,loc=()=>L()==="tl"?"fil-PH":"en-US";
+const fd=i=>new Date(i).toLocaleDateString(loc(),{month:"short",day:"numeric",year:"numeric",timeZone:TZ});
+const ft=i=>new Date(i).toLocaleTimeString(loc(),{hour:"numeric",minute:"2-digit",timeZone:TZ});
+const pl=k=>t("p_"+k),purTxt=(v,en)=>v.purpose==="other"?`${en?T.en.p_other:pl("other")}: ${v.other}`:(en?T.en["p_"+v.purpose]:pl(v.purpose));
+const findF=id=>DB.fac.find(x=>x.id===id);
+Object.assign(I,{key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>',chevl:'<path d="M15 6l-6 6 6 6"/>',chevr:'<path d="M9 6l6 6-6 6"/>',bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',check:'<path d="M5 12l5 5 9-10"/>'});
+const EMAILDOM=(CFG.emailDomain||"dhs-visitors.app").toLowerCase(),uemail=u=>u+"@"+EMAILDOM,UNAME=/^[a-z0-9][a-z0-9._-]{2,19}$/,pad=n=>String(n).padStart(2,"0");
+const REPLY={on_my_way:"On my way",please_wait:"Please wait",cannot_meet:"Cannot meet now"};
+const INFO=`<div class="info">Phone alerts are built into this app. Teachers get an inbox here and a push alert on their phone.</div>`;
+const PS={accepted:["in","Accepted by push service"],failed:["er","Request failed"],nodevice:["wa","No phone registered"],pending:["out","Sending…"]};
+const pill=n=>{const[c,l]=PS[n.s]||PS.failed,x=n.s==="accepted"&&n.sent?`${n.sent} phone${n.sent>1?"s":""}${n.failed?`, ${n.failed} failed`:""}`:n.err||"";return`<span class="b ${c}">${l}</span>${x?`<small class="mut">${esc(x)}</small>`:""}`};
+const urgB=p=>p==="urgent"?' <span class="b er">Urgent</span>':"";
+const mapV=r=>({id:r.id,name:r.name,contact:r.contact||"",purpose:r.purpose,other:r.purpose_other||"",prio:r.priority,facId:r.faculty_id,person:r.faculty_name,tin:r.time_in,tout:r.time_out});
+const mapF=r=>({id:r.id,name:r.name,kind:r.kind,pid:r.profile_id||null,devices:r.devices||0,test:r.last_test_status?{s:r.last_test_status,at:r.last_test_at,err:r.last_test_error}:null});
+const mapA=r=>({id:r.id,username:r.username,name:r.display_name,req:r.requested_role,role:r.role,status:r.status,at:r.created_at});
+const mapN=r=>({id:r.id,vid:r.visitor_id,facId:r.faculty_id,at:r.created_at,read:!!r.read_at,ack:r.acknowledged_at,reply:r.reply,rat:r.replied_at,prio:r.priority,reps:r.repeat_count,push:{s:r.push_status,at:r.push_at,err:r.push_error,sent:r.push_sent,failed:r.push_failed}});
+const CAL={vis:[]},pend=()=>DB.acc.filter(a=>a.status==="pending").length,unreadMine=()=>DB.nt.filter(n=>n.facId===S.user.id&&!n.ack).length;
+const unackUrgent=()=>DB.nt.filter(n=>n.prio==="urgent"&&!n.ack&&n.push.s!=="pending"&&Date.now()-new Date(n.at)<864e5&&!(DB.vis.find(v=>v.id===n.vid)||{}).tout);
+const calInit=()=>{const p=ymd(Date.now()).split("-");S.cal={y:+p[0],m:+p[1]};S.day=ymd(Date.now())};
+const who=()=>S.user.name+" ("+S.user.username+")";
+const NAVS={guard:[["dash","home","dashboard"],["reg","uplus","register"],["rec","doc","records"],["not","bell","notifs"],["set","gear","settings"]],admin:[["dash","home","dashboard"],["rec","doc","records"],["acc","ucheck","Accounts"],["fac","users","Faculty"],["not","bell","notifs"],["set","gear","settings"]],teacher:[["mine","bell","notifs"],["set","gear","settings"]]};
+const rows=(l,f)=>l.length?l.map(v=>`<tr>${f?`<td>${fd(v.tin)}</td>`:""}<td>${esc(v.name)}${urgB(v.prio)}</td>${f?`<td>${esc(v.contact)||"–"}</td>`:""}<td>${esc(purTxt(v))}</td><td>${esc(v.person)}</td><td>${ft(v.tin)}</td>${f?`<td>${v.tout?ft(v.tout):"–"}</td>`:""}<td><span class="b ${v.tout?"out":"in"}">${t(v.tout?(f?"out":"outs"):"inside")}</span></td><td>${v.tout?"":`<button type="button" class="btn ghost sm" onclick="outV(${v.id})">${t("co")}</button>`}</td></tr>`).join(""):`<tr><td colspan="9" class="mut">${t("none")}</td></tr>`;
+let tt;function toast(m){const e=$("#toast");e.textContent=m;e.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>e.classList.remove("on"),4200)}
+async function copy(x){try{await navigator.clipboard.writeText(x);toast("Copied.")}catch(e){const a=document.createElement("textarea");a.value=x;document.body.append(a);a.select();let ok=false;try{ok=document.execCommand("copy")}catch(_){}a.remove();toast(ok?"Copied.":"Copy failed. Select the text and copy it manually.")}}
+const H=f=>(f?["date","name","contact","purpose","person","tin","tout","status","act"]:["name","purpose","person","tin","status","act"]).map(k=>`<th>${t(k)}</th>`).join("");
+const tbl=(l,f)=>`<div class="tw"><table><tr>${H(f)}</tr>${rows(l,f)}</table></div>`;
+const byTime=()=>[...DB.vis].sort((a,b)=>b.tin.localeCompare(a.tin));
+const ent=fn=>`onsubmit="return false" onkeydown="if(event.key==='Enter'&&event.target.tagName==='INPUT'){event.preventDefault();${fn}()}"`;
+
+async function loadMonth(){const{y,m}=S.cal,n=m===12?[y+1,1]:[y,m+1],a=`${y}-${pad(m)}-01T00:00:00+08:00`,b=`${n[0]}-${pad(n[1])}-01T00:00:00+08:00`;
+ const r=await sb.from("visitors").select("*").gte("time_in",a).lt("time_in",b).order("time_in");if(r.error)throw r.error;CAL.vis=r.data.map(mapV)}
+const refresh=async()=>{await loadAll();if(S.page==="rec")await loadMonth().catch(()=>{});render()};
+async function openRec(){if(!S.cal)calInit();try{await loadMonth()}catch(e){toast("Could not load history: "+(e.message||e))}render()}
+async function calGo(d){let{y,m}=S.cal;m+=d;if(m<1){m=12;y--}if(m>12){m=1;y++}S.cal={y,m};S.day=`${y}-${pad(m)}-01`;await openRec()}
+async function calToday(){S.cal=null;await openRec()}
+const calPick=d=>{S.day=d;render()};
+
+const soft=()=>{if(!S.user||S.page==="reg"||$("#mo").innerHTML||/INPUT|SELECT/.test(document.activeElement.tagName))return;render()};
+async function loadAll(){
+ const q=[sb.from("faculty").select("*").order("name"),sb.from("visitors").select("*").order("time_in",{ascending:false}).limit(2000),sb.from("notifications").select("*").order("created_at",{ascending:false}).limit(2000)];
+ if(S.user&&S.user.role==="admin")q.push(sb.from("profiles").select("*").order("created_at",{ascending:false}));
+ const[f,v,n,a]=await Promise.all(q),bad=f.error||v.error||n.error||(a&&a.error);if(bad)throw bad;
+ DB.fac=f.data.map(mapF);DB.vis=v.data.map(mapV);DB.nt=n.data.map(mapN);DB.acc=a?a.data.map(mapA):[]}
+let AC=null;const unlockAudio=()=>{try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();AC.resume()}catch(e){}};
+document.addEventListener("click",unlockAudio);document.addEventListener("keydown",unlockAudio);
+function beep(){try{if(!AC)return;const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.frequency.value=880;g.gain.setValueAtTime(.2,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.6);o.start();o.stop(AC.currentTime+.6)}catch(e){}}
+function exportCsv(){const c=x=>{x=String(x??"");if(/^[=+\-@\t\r]/.test(x))x="'"+x;return'"'+x.replace(/"/g,'""')+'"'};
+ const rows=CAL.vis.map(v=>[ymd(v.tin),v.name,v.contact,purTxt(v,1),v.person,ft(v.tin),v.tout?ft(v.tout):""].map(c).join(","));
+ const csv="\ufeff"+[["Date","Name","Contact","Purpose","Person to visit","Time in","Time out"].map(c).join(","),...rows].join("\r\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=`dhs-visitors-${S.cal.y}-${pad(S.cal.m)}.csv`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast(`Exported ${rows.length} records.`)}
+
+// ---- pages ----
+const pages={
+dash(){const today=ymd(Date.now()),c=s=>DB.nt.filter(n=>n.push.s===s).length,u=unackUrgent().length;
+ const st=[["#2c6df0","user",t("s1"),DB.vis.filter(v=>ymd(v.tin)===today).length,t("s1s")],["#2fb36a","ucheck",t("s2"),DB.vis.filter(v=>!v.tout).length,t("s2s")],["#f5a524","bell","Alerts accepted",c("accepted"),`${c("failed")} failed · ${c("nodevice")} no phone`],["#7c4de8","doc",t("s4"),DB.vis.length,t("s4s")]];
+ return`<h1>${t("dashboard")}</h1><p class="mut">${t("welcome")}</p>${u?`<div class="urg" role="button" tabindex="0" onclick="go('not')">${u} urgent alert${u>1?"s":""} not acknowledged yet. Tap to review.</div>`:""}<div class="stats">${st.map(([c,i,l,v,s])=>`<div class="card stat"><div class="ic" style="background:${c}">${ic(i)}</div><div><span>${l}</span><b>${v}</b><small class="mut">${s}</small></div></div>`).join("")}</div><div class="card"><h2>${t("recent")}</h2>${tbl(byTime().slice(0,6),false)}</div>`},
+reg(){const n=iso();return`<h1>${t("register")}</h1><div class="regw"><form class="card" id="rf" ${ent("submitReg")}><h2>${t("vi")}</h2>
+ <div class="g2"><div><label>${t("fn")} <i>*</i></label><input name="name" required maxlength="80" placeholder="${t("fnp")}"></div><div><label>${t("contact")} (optional)</label><input name="contact" type="tel" maxlength="20" placeholder="${t("cnp")}"></div>
+ <div><label>${t("pv")} <i>*</i></label><select name="purpose" required onchange="togOther()"><option value="">${t("sp")}</option>${PUR.map(p=>`<option value="${p}">${pl(p)}</option>`).join("")}</select></div>
+ <div><label>${t("ptv")} <i>*</i></label><select name="fac" required onchange="hint()"><option value="">${t("spp")}</option>${DB.fac.map(f=>`<option value="${f.id}">${esc(f.name)}</option>`).join("")}</select><div id="th" style="margin-top:6px"></div></div>
+ <div id="ow" class="hid" style="grid-column:1/-1"><label>Describe the purpose <i>*</i></label><input name="other" id="oi" maxlength="80" placeholder="e.g. Delivery of school supplies"></div>
+ <div style="grid-column:1/-1"><label>Alert priority</label><select name="prio"><option value="normal">Normal: standard phone alert</option><option value="urgent">Urgent: strong vibration, repeats until the teacher answers</option></select></div>
+ <div><label>${t("date")} (Asia/Manila)</label><div class="f r"><input readonly value="${fd(n)}">${ic("cal")}</div></div><div><label>${t("tin")} (auto)</label><div class="f r"><input id="ti" readonly value="${ft(n)}">${ic("clock")}</div></div></div>
+ <div class="row"><button type="button" class="btn" style="min-width:114px" onclick="submitReg()">${t("reg")}</button><button type="button" class="btn ghost" style="min-width:90px" onclick="$('#rf').reset();togOther();hint()">${t("clr")}</button></div></form>
+ <div class="card"><h2>Last alert</h2><p id="last" class="mut" style="margin-top:8px">Nothing sent yet.</p><div class="q"><button type="button" class="btn ghost" onclick="go('rec')">${ic("doc")}${t("vr")}</button></div></div></div>`},
+rec(){if(!S.cal)calInit();const{y,m}=S.cal,first=new Date(Date.UTC(y,m-1,1)).getUTCDay(),dim=new Date(Date.UTC(y,m,0)).getUTCDate(),cnt={},today=ymd(Date.now());
+ CAL.vis.forEach(v=>{const d=ymd(v.tin);cnt[d]=(cnt[d]||0)+1});
+ const mn=new Date(Date.UTC(y,m-1,1)).toLocaleDateString(loc(),{month:"long",year:"numeric",timeZone:"UTC"});
+ let cells="";for(let i=0;i<first;i++)cells+="<span></span>";
+ for(let d=1;d<=dim;d++){const k=`${y}-${pad(m)}-${pad(d)}`,c=cnt[k]||0;cells+=`<button type="button" class="cd${k===S.day?" sel":""}${k===today?" td":""}" onclick="calPick('${k}')" aria-label="${k}, ${c} visitors"><b>${d}</b>${c?`<i>${c}</i>`:""}</button>`}
+ const day=CAL.vis.filter(v=>ymd(v.tin)===S.day),dl=new Date(S.day+"T12:00:00Z").toLocaleDateString(loc(),{weekday:"long",month:"long",day:"numeric",year:"numeric",timeZone:"UTC"});
+ return`<div class="row" style="justify-content:space-between;align-items:center"><h1>${t("records")}</h1>${S.user.role==="admin"?`<button type="button" class="btn ghost" onclick="exportCsv()">Export month (CSV)</button>`:""}</div>
+ <div class="calw"><div class="card"><div class="row" style="justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:nowrap"><button type="button" class="ib" aria-label="Previous month" onclick="calGo(-1)">${ic("chevl")}</button><b>${mn}</b><button type="button" class="ib" aria-label="Next month" onclick="calGo(1)">${ic("chevr")}</button></div><div class="cg">${["S","M","T","W","T","F","S"].map(x=>`<small>${x}</small>`).join("")}${cells}</div><button type="button" class="btn ghost sm" style="margin-top:12px" onclick="calToday()">Today</button></div>
+ <div class="card"><h2>${dl}</h2><p class="mut" style="margin-bottom:6px">${day.length} visitor${day.length===1?"":"s"} logged</p>${tbl(day,true)}</div></div>`},
+not(){const l=[...DB.nt].sort((a,b)=>b.at.localeCompare(a.at));
+ return`<h1>${t("notifs")}</h1><p class="mut" style="margin:2px 0 14px">“Accepted by push service” means Google’s push service took the alert. It does not prove the phone showed it. A teacher’s reply or acknowledgement is the real proof.</p><div class="card" style="padding:8px"><div class="tw"><table><tr><th>${t("tin")}</th><th>${t("name")}</th><th>${t("ptv")}</th><th>Delivery</th><th>Teacher response</th><th>${t("act")}</th></tr>${l.map(n=>{const v=DB.vis.find(x=>x.id===n.vid);if(!v)return"";const bad=n.push.s==="failed"||n.push.s==="nodevice",wait=n.prio==="urgent"&&!n.ack&&!bad&&n.push.s!=="pending";
+ return`<tr><td>${fd(n.at)} ${ft(n.at)}</td><td>${esc(v.name)}${urgB(n.prio)}</td><td>${esc(v.person)}</td><td>${pill(n.push)}</td><td>${n.reply?`<span class="b in">${REPLY[n.reply]}</span><small class="mut">${ft(n.rat)}</small>`:n.ack?`<span class="b in">Acknowledged</span><small class="mut">${ft(n.ack)}</small>`:wait?`<span class="b er">Waiting ${Math.max(0,Math.floor((Date.now()-new Date(n.at))/6e4))} min</span>${n.reps?`<small class="mut">re-sent ${n.reps}×</small>`:""}`:"–"}</td><td>${bad?`<button type="button" class="btn ghost sm" onclick="retry(${n.id})">Retry</button>`:wait?`<button type="button" class="btn sm" onclick="retry(${n.id})">${ic("bolt")}Alert again</button>`:""}</td></tr>`}).join("")||`<tr><td colspan="6" class="mut">${t("none")}</td></tr>`}</table></div></div>`},
+acc(){const ps=DB.acc.filter(a=>a.status==="pending"),rest=DB.acc.filter(a=>a.status!=="pending");
+ return`<h1>Accounts</h1><p class="mut" style="margin-bottom:14px">People create their own account with their staff ID. Nobody sees anything until you approve them. Rejecting or deleting an account frees its ID.</p>
+ ${ps.length?`<div class="card" style="margin-bottom:16px;padding:8px"><h2 style="padding:10px 12px 0">Waiting for approval (${ps.length})</h2><div class="tw"><table><tr><th>ID</th><th>Name</th><th>Asked to be</th><th>Requested</th><th>${t("act")}</th></tr>${ps.map(a=>`<tr><td><code>${esc(a.username)}</code></td><td>${esc(a.name)}</td><td>${esc(a.req||"")}</td><td>${fd(a.at)}</td><td class="act"><button type="button" class="btn sm" onclick="apprF('${a.id}')">Approve</button> <button type="button" class="btn ghost sm" onclick="rejA('${a.id}')">Reject</button></td></tr>`).join("")}</table></div></div>`:`<div class="info">No accounts are waiting for approval.</div>`}
+ <div class="card" style="padding:8px"><h2 style="padding:10px 12px 0">Accounts</h2><div class="tw"><table><tr><th>ID</th><th>Name</th><th>Role</th><th>Status</th><th>${t("act")}</th></tr>${rest.map(a=>`<tr><td><code>${esc(a.username)}</code></td><td>${esc(a.name)}</td><td>${esc(a.role||"–")}</td><td><span class="b ${a.status==="approved"?"in":"out"}">${a.status}</span></td><td class="act">${a.id===S.user.uid?"You":`<button type="button" class="ib" title="${a.status==="approved"?"Disable":"Enable"}" aria-label="${a.status==="approved"?"Disable":"Enable"}" onclick="togA('${a.id}',${a.status!=="approved"})">${ic(a.status==="approved"?"lock":"ucheck")}</button><button type="button" class="ib" title="Reset password" aria-label="Reset password" onclick="pwA('${a.id}')">${ic("key")}</button><button type="button" class="ib d" title="Delete" aria-label="Delete" onclick="delA('${a.id}')">${ic("trash")}</button>`}</td></tr>`).join("")||`<tr><td colspan="5" class="mut">No accounts yet.</td></tr>`}</table></div></div>`},
+fac(){return`<div class="row" style="justify-content:space-between;align-items:center;margin-bottom:6px"><h1>Faculty</h1><button type="button" class="btn" onclick="editF(0)">${ic("plus")}Add faculty</button></div><p class="mut" style="margin-bottom:14px">Teachers: LAST NAME, FIRST NAME. A teacher gets alerts after they create an account, you approve it in Accounts, and they enable alerts on their phone.</p><div class="card" style="padding:8px"><div class="tw"><table><tr><th>${t("name")}</th><th>Login</th><th>Phones</th><th>Last test</th><th>${t("act")}</th></tr>${DB.fac.map(f=>`<tr><td>${esc(f.name)}<small class="mut" style="display:block">${f.kind}</small></td><td>${f.pid?`<span class="b in">Linked</span>`:"–"}</td><td>${f.devices?`<span class="b in">${f.devices}</span>`:`<span class="b wa">None</span>`}</td><td>${f.test?pill(f.test):"–"}</td><td class="act"><button type="button" class="ib" title="Send test alert" aria-label="Send test alert" onclick="testF(${f.id})">${ic("send")}</button><button type="button" class="ib" title="Edit" aria-label="Edit" onclick="editF(${f.id})">${ic("edit")}</button><button type="button" class="ib d" title="Remove" aria-label="Remove" onclick="delF(${f.id})">${ic("trash")}</button></td></tr>`).join("")||`<tr><td colspan="5" class="mut">No faculty yet. Press “Add faculty”.</td></tr>`}</table></div></div>`},
+mine(){const f=findF(S.user.id)||{id:0,name:S.user.name,devices:0},l=DB.nt.filter(n=>n.facId===f.id).sort((a,b)=>b.at.localeCompare(a.at));
+ return`<h1>${t("notifs")}</h1><p class="mut" style="margin-bottom:14px">${esc(f.name)}</p><div class="card" style="margin-bottom:16px"><h2>Alerts on this phone</h2><p id="ps" class="mut" style="margin:8px 0">Checking…</p><div class="row"><button type="button" id="ib" class="btn ghost${ipEv?"":" hid"}" onclick="installApp()">Install app</button><button type="button" class="btn" onclick="enablePush()">${ic("phone")}Enable alerts on this phone</button><button type="button" class="btn ghost" onclick="testF(${f.id})">${ic("send")}Send test</button><button type="button" class="btn ghost" onclick="disablePush()">Turn off here</button></div><p class="mut" style="margin-top:12px;font-size:11.5px"><b>Android setup:</b> 1) In Chrome tap Install app. 2) Open the DHS Alerts icon and sign in. 3) Tap Enable alerts and allow notifications. 4) Press Send test. If alerts are silent: Settings, Apps, DHS Alerts (or Chrome), Notifications, turn sound on.</p><p class="mut" style="margin-top:6px;font-size:11.5px">Phones registered for you: ${f.devices}</p></div>`+
+ (l.map(n=>{const v=DB.vis.find(x=>x.id===n.vid);return v?`<div class="nt inb ${n.ack?"":"new"}"><span class="bell">${ic("bell")}</span><div style="flex:1;min-width:0"><b class="nm">${n.prio==="urgent"?"URGENT: ":""}${t("arrival")}</b><div>${esc(t("msg")(v.name,"you"))}</div><small class="mut">${esc(purTxt(v))} · ${fd(v.tin)} ${ft(v.tin)}${v.tout?" · visitor left":""}</small>${n.reply?`<small><b>You replied: ${REPLY[n.reply]}</b> (${ft(n.rat)})</small>`:n.ack?`<small>Acknowledged ${ft(n.ack)}</small>`:`<div class="row" style="margin-top:8px"><button type="button" class="btn sm" onclick="rep(${n.id},'on_my_way')">On my way</button><button type="button" class="btn ghost sm" onclick="rep(${n.id},'please_wait')">Please wait</button><button type="button" class="btn ghost sm" onclick="rep(${n.id},'cannot_meet')">Cannot meet</button><button type="button" class="btn ghost sm" onclick="ackN(${n.id})">Got it</button></div>`}</div></div>`:""}).join("")||`<p class="mut">${t("none")}</p>`)},
+set(){return`<h1>${t("settings")}</h1>${INFO}<div class="card" style="max-width:560px"><h2>${t("lang")}</h2><p class="mut" style="margin:4px 0 12px">${t("langd")}</p><div class="row"><button type="button" class="btn ${L()==="en"?"":"ghost"}" onclick="setL('en')">English</button><button type="button" class="btn ${L()==="tl"?"":"ghost"}" onclick="setL('tl')">Tagalog</button></div></div>
+ <div class="card" style="max-width:560px;margin-top:14px"><h2>Change my password</h2><p class="mut" style="margin:4px 0 12px">At least 8 characters.</p><div style="display:flex;gap:8px"><input id="npw" type="password" autocomplete="new-password" aria-label="New password"><button type="button" class="btn" onclick="changePw()">Save</button></div><div class="err" id="perr"></div></div>`}};
+
+function render(){document.documentElement.lang=L();const el=$("#root");if(S.wait){el.innerHTML=waitHTML();return}if(!S.user){el.innerHTML=S.reg?registerHTML():loginHTML();return}
+ const nav=NAVS[S.user.role];if(!nav.some(n=>n[0]===S.page))S.page=nav[0][0];
+ el.innerHTML=`<div class="app"><aside class="side"><div class="brand">${LOGO(38)}<div>Dapdap High School<small>${t("sys")}</small></div></div>${nav.map(([p,i,k])=>`<button type="button" class="ni ${S.page===p?"on":""}" onclick="go('${p}')">${ic(i)}<span>${t(k)}</span>${p==="acc"&&pend()?`<b class="dot">${pend()}</b>`:p==="mine"&&unreadMine()?`<b class="dot">${unreadMine()}</b>`:""}</button>`).join("")}<button type="button" class="ni lo" onclick="logout()">${ic("out")}<span>${t("logout")}</span></button></aside><main><div class="top"><span>${ic("user")}${esc(who())}</span><span id="clk"></span></div>${S.page==="set"?"":INFO}${pages[S.page]()}</main></div>`;tick();if(S.page==="mine")pushStatus()}
+function tick(){const n=new Date(),c=$("#clk"),ti=$("#ti");if(c)c.textContent=fd(n)+", "+ft(n);if(ti)ti.value=ft(n)}setInterval(tick,15000);
+const go=p=>{S.page=p;if(p==="rec")openRec();else render();window.scrollTo(0,0)},togglePw=()=>{const p=$("#pw");p.type=p.type==="password"?"text":"password"};
+function loginHTML(){return`<div class="login"><section class="hero">${LOGO(150)}<h2>Dapdap High School</h2><p class="big">${t("sys")}</p><p class="tg">${t("tag")}</p></section><section class="lf"><form id="lf" ${ent("doLogin")}><div><h2>${t("wb")}</h2><p class="mut" style="margin-top:4px">${t("lp")}</p></div><div class="f">${ic("user")}<input name="u" required placeholder="Staff / Employee ID" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false"></div><div class="f">${ic("lock")}<input id="pw" name="p" type="password" required placeholder="${t("pass")}" autocomplete="current-password"><button type="button" class="eye" onclick="togglePw()" aria-label="Show password">${ic("eyeoff")}</button></div><div class="err" id="err"></div><button type="button" class="btn" onclick="doLogin()">${t("login")}</button><button type="button" class="btn ghost" onclick="showReg(true)">Create account</button><p class="mut" style="font-size:11.5px">New accounts must be approved by the administrator. Forgot your password? Ask the administrator to reset it.</p></form></section></div>`}
+const registerHTML=()=>`<div class="login"><section class="hero">${LOGO(150)}<h2>Dapdap High School</h2><p class="big">${t("sys")}</p></section><section class="lf"><form id="rg" ${ent("doRegister")}><div><h2>Create account</h2><p class="mut" style="margin-top:4px">Your staff or employee ID is your username. An administrator must approve the account before you can see anything.</p></div><input name="u" required placeholder="Staff / Employee ID" maxlength="20" autocapitalize="none" autocorrect="off" spellcheck="false" autocomplete="username"><input name="n" required placeholder="LAST NAME, FIRST NAME" maxlength="80" autocomplete="name"><select name="r" aria-label="I am"><option value="teacher">I am a teacher or office staff</option><option value="guard">I am a security guard</option></select><input name="p" type="password" required placeholder="Password (8+ characters)" autocomplete="new-password"><input name="p2" type="password" required placeholder="Repeat password" autocomplete="new-password"><div class="err" id="err"></div><button type="button" class="btn" onclick="doRegister()">Request account</button><button type="button" class="btn ghost" onclick="showReg(false)">Back to login</button></form></section></div>`;
+const waitHTML=()=>`<div class="login"><section class="hero">${LOGO(150)}<h2>Dapdap High School</h2><p class="big">${t("sys")}</p></section><section class="lf"><div style="max-width:340px;display:grid;gap:12px;text-align:center"><h2>${S.wait.s==="pending"?"Waiting for approval":"Account not active"}</h2><p class="mut">${S.wait.s==="pending"?`Hello ${esc(S.wait.n)}. Your request was received. An administrator must approve it before you can use the system.`:"This account is disabled. Ask the administrator."}</p><button type="button" class="btn" onclick="boot()">Check again</button><button type="button" class="btn ghost" onclick="logout()">Log out</button></div></section></div>`;
+const showReg=on=>{S.reg=on;render()};
+function notReady(msg){$("#root").innerHTML=`<div class="login"><section class="hero">${LOGO(150)}<h2>Dapdap High School</h2><p class="big">${t("sys")}</p></section><section class="lf"><div style="max-width:340px;display:grid;gap:10px"><h2>Not connected yet</h2><p class="mut">${msg}</p></div></section></div>`}
+async function boot(){
+ const bad=!CFG.url||!CFG.key||/YOUR[-_]/i.test(CFG.url+CFG.key);
+ if(bad)return notReady("Open <code>site/config.js</code> in the repository and paste your Supabase Project URL and publishable key, then commit.");
+ let role="";try{role=JSON.parse(atob(CFG.key.split(".")[1].replace(/-/g,"+").replace(/_/g,"/"))).role}catch(x){}
+ if(role==="service_role"||/^sb_secret_/.test(CFG.key))return notReady("<b>config.js contains a SECRET key.</b> Remove it now, commit, and rotate that key in Supabase. Only the publishable (or anon) key belongs here.");
+ if(!window.supabase)return notReady("The Supabase library did not load. Check the internet connection and reload.");
+ sb=sb||supabase.createClient(CFG.url,CFG.key);const{data:{session}}=await sb.auth.getSession();
+ if(!session){S.user=null;S.wait=null;render();return}
+ try{const p=await sb.from("profiles").select("role,display_name,username,status").eq("id",session.user.id).single();
+  if(p.error||!p.data)throw new Error("This account has no profile. Ask the administrator.");const pr=p.data;
+  if(pr.status!=="approved"||!pr.role){S.user=null;S.wait={s:pr.status,n:pr.display_name};render();return}
+  S.wait=null;S.user={role:pr.role,name:pr.display_name,username:pr.username,uid:session.user.id};await loadAll();
+  if(S.user.role==="teacher"){const f=DB.fac.find(x=>x.pid===S.user.uid);if(!f)throw new Error("No faculty record is linked to this account yet. Ask the administrator.");S.user.id=f.id}
+  subscribe();startRepeat();render()}
+ catch(e){const m=e.message||"Could not load data";await sb.auth.signOut();S.user=null;S.wait=null;render();const x=$("#err");if(x)x.textContent=m}}
+async function doLogin(){const d=new FormData($("#lf")),u=d.get("u").trim().toLowerCase(),r=await sb.auth.signInWithPassword({email:uemail(u),password:d.get("p")});
+ if(r.error){$("#err").textContent=/invalid login/i.test(r.error.message)?"Incorrect ID or password.":r.error.message;return}S.page="";await boot()}
+async function doRegister(){const d=new FormData($("#rg")),u=d.get("u").trim().toLowerCase(),n=d.get("n").trim().toUpperCase(),p=d.get("p"),e=m=>{$("#err").textContent=m};
+ if(!UNAME.test(u))return e("ID: 3 to 20 letters, numbers, . _ or - (no spaces).");
+ if(!n.includes(",")||n.split(",")[1].trim()==="")return e("Write your name as LAST NAME, FIRST NAME.");
+ if(p.length<8)return e("Password needs at least 8 characters.");if(p!==d.get("p2"))return e("The two passwords do not match.");
+ e("Checking…");const av=await sb.rpc("username_available",{p_username:u});if(av.error)return e(av.error.message);if(!av.data)return e("That ID is already registered. If it is yours, ask the administrator.");
+ const s=await sb.auth.signUp({email:uemail(u),password:p,options:{data:{username:u,display_name:n,requested_role:d.get("r")}}});
+ if(s.error){const m=s.error.message;return e(/already.*registered/i.test(m)?"That ID is already registered.":/database error/i.test(m)?"Could not create the account. Too many requests may be waiting. Ask the administrator.":/invalid/i.test(m)?"Sign-up refused (email format). Ask the administrator to change emailDomain in config.js.":m)}
+ if(!s.data.session)return e("Account created, but sign-in is blocked. Ask the administrator to turn OFF “Confirm email” in Supabase.");
+ S.reg=false;await boot()}
+async function logout(){clearInterval(rep_t);if(ch){sb.removeChannel(ch);ch=null}await sb.auth.signOut();S.user=null;S.wait=null;S.reg=false;S.page="";DB={fac:[],vis:[],acc:[],nt:[]};render()}
+
+// ---- actions ----
+function togOther(){const o=$("#rf [name=purpose]").value==="other";$("#ow").classList.toggle("hid",!o);$("#oi").required=o;if(!o)$("#oi").value=""}
+const setLast=h=>{const e=$("#last");if(e)e.innerHTML=h};
+async function outV(id){const v=DB.vis.find(x=>x.id===id);if(!v||v.tout)return;
+ const r=await sb.from("visitors").update({time_out:iso()}).eq("id",id).is("time_out",null).select();
+ if(r.error)return toast("Check-out failed: "+r.error.message);await refresh();toast(r.data&&r.data.length?t("okOut"):"Already checked out.")}
+async function delF(id){if(!confirm("Remove this faculty record? Past visitor records are kept."))return;
+ const r=await sb.from("faculty").delete().eq("id",id);if(r.error)return toast("Could not remove: "+r.error.message);await refresh();toast("Removed.")}
+async function changePw(){const p=$("#npw").value,e=m=>{$("#perr").textContent=m};if(p.length<8)return e("At least 8 characters.");const r=await sb.auth.updateUser({password:p});if(r.error)return e(r.error.message);$("#npw").value="";e("");toast("Password changed.")}
+const accName=id=>(DB.acc.find(x=>x.id===id)||{}).name||"";
+function apprF(id){const a=DB.acc.find(x=>x.id===id);if(!a)return;const free=DB.fac.filter(f=>!f.pid),tc=a.req==="teacher";
+ $("#mo").innerHTML=`<div class="ov" onclick="closeM()"><div class="md wide" onclick="event.stopPropagation()"><h2>Approve ${esc(a.name)}</h2><p class="mut">ID <code>${esc(a.username)}</code> asked to be a ${esc(a.req||"teacher")}. Check that this really is that person.</p><div><label>Role</label><select id="ap_r" onchange="apRole()"><option value="guard" ${tc?"":"selected"}>Guard</option><option value="teacher" ${tc?"selected":""}>Teacher or office staff</option><option value="admin">Administrator</option></select></div>
+ <div id="ap_f" class="${tc?"":"hid"}"><label>Faculty record</label><select id="ap_fs"><option value="">Create a new record from their name</option>${free.map(f=>`<option value="${f.id}">${esc(f.name)}</option>`).join("")}</select></div><div class="err" id="aerr"></div><div class="row"><button type="button" class="btn" onclick="doApprove('${id}')">Approve</button><button type="button" class="btn ghost" onclick="closeM()">Cancel</button></div></div></div>`}
+const apRole=()=>$("#ap_f").classList.toggle("hid",$("#ap_r").value!=="teacher");
+async function doApprove(id){const a=DB.acc.find(x=>x.id===id),role=$("#ap_r").value,fs=role==="teacher"?(+$("#ap_fs").value||null):null;
+ const r=await sb.rpc("approve_account",{p_user:id,p_role:role,p_faculty:fs});if(r.error)return $("#aerr").textContent=r.error.message;
+ closeM();await refresh();toast("Approved."+(role==="teacher"&&!fs?" A faculty record was created.":""))}
+async function accRpc(fn,args,ok){const r=await sb.rpc(fn,args);if(r.error)return toast(r.error.message);await refresh();toast(ok)}
+const rejA=id=>confirm("Reject and delete this request? The ID becomes free again.")&&accRpc("reject_account",{p_user:id},"Request rejected.");
+const togA=(id,on)=>accRpc("set_account_status",{p_user:id,p_status:on?"approved":"disabled"},on?"Account enabled.":"Account disabled.");
+const delA=id=>confirm("Delete this account for good? The ID becomes free again.")&&accRpc("delete_account",{p_user:id},"Account deleted.");
+function pwA(id){const p=prompt("New temporary password for "+accName(id)+" (8+ characters). Tell them to change it in Settings.");if(p===null)return;if(p.length<8)return toast("At least 8 characters.");accRpc("admin_set_password",{p_user:id,p_password:p},"Password reset.")}
+async function fnErr(er){try{const j=await er.context.json();if(j.error)return j.error}catch(e){}return"Could not reach the server function. Check that it is deployed."}
+async function alertFn(body,vid){const r=await sb.functions.invoke("send-alert",{body});
+ if(r.error){const msg=await fnErr(r.error);if(vid)await sb.rpc("mark_alert_failed",{p_visitor:vid,p_error:msg});return{s:"failed",err:msg}}return r.data}
+// sound + vibration while the app is open
+function alertFx(u){beep();if(u){setTimeout(beep,350);setTimeout(beep,700)}try{navigator.vibrate&&navigator.vibrate(u?[500,200,500,200,500,200,900]:[200,100,200])}catch(e){}}
+function subscribe(){if(ch)sb.removeChannel(ch);let tm;const re=()=>{clearTimeout(tm);tm=setTimeout(async()=>{try{await loadAll();if(S.page==="rec")await loadMonth()}catch(e){return}soft()},400)};
+ ch=sb.channel("dhs");["visitors","faculty","notifications",...(S.user&&S.user.role==="admin"?["profiles"]:[])].forEach(tb=>ch.on("postgres_changes",{event:"*",schema:"public",table:tb},p=>{
+  const rl=S.user&&S.user.role,n=p.new||{};
+  if(tb==="notifications"&&p.eventType==="INSERT"&&rl==="teacher"){toast((n.priority==="urgent"?"URGENT: ":"")+"A visitor is waiting for you.");alertFx(n.priority==="urgent")}
+  if(tb==="notifications"&&p.eventType==="UPDATE"&&rl!=="teacher"&&n.reply){const o=DB.nt.find(x=>x.id===n.id);if(!o||o.reply!==n.reply){toast(((findF(n.faculty_id)||{}).name||"Teacher")+": "+REPLY[n.reply]);alertFx(false)}}
+  re()}));ch.subscribe()}
+function hint(){const f=findF(+$("#rf [name=fac]").value);$("#th").innerHTML=f?(f.devices>0?`<span class="b in">${f.devices} phone${f.devices>1?"s":""} registered</span>`:`<span class="b wa">No phone registered: no alert will be sent</span>`):""}
+async function submitReg(){const f=$("#rf");if(!f.reportValidity())return;const d=new FormData(f),fid=+d.get("fac"),fac=findF(fid);if(!fac)return toast("Choose a teacher or office.");
+ const row={name:d.get("name").trim(),contact:d.get("contact").trim()||null,purpose:d.get("purpose"),purpose_other:(d.get("other")||"").trim()||null,priority:d.get("prio")==="urgent"?"urgent":"normal",faculty_id:fid,faculty_name:fac.name};
+ if(!row.name||(row.purpose==="other"&&!row.purpose_other))return toast("Please fill in the required fields.");
+ const ins=await sb.from("visitors").insert(row).select().single();if(ins.error)return toast("Could not save the visitor: "+ins.error.message);
+ DB.vis.unshift(mapV(ins.data));f.reset();togOther();hint();setLast(`${esc(row.name)} saved to the database. Sending alert…`);
+ const r=await alertFn({visitor_id:ins.data.id},ins.data.id),u=row.priority==="urgent";
+ const m=r.s==="accepted"?`Visitor saved. The push service accepted the ${u?"URGENT ":""}alert for ${fac.name} (${r.sent} phone${r.sent>1?"s":""}). Phone display is not confirmed until the teacher answers.`:r.s==="nodevice"?`Visitor saved. ${fac.name} has no phone registered, so no push alert was sent. The in-app inbox still has it.`:`Visitor saved, but the alert failed: ${r.err}`;
+ setLast(`${esc(row.name)} → ${esc(fac.name)}${urgB(row.priority)}<br>${pill(r)}`);toast(m);loadAll().catch(()=>{})}
+async function retry(id){toast("Sending…");const r=await alertFn({notification_id:id,resend:true});await refresh();toast(r.s==="accepted"?"The push service accepted the alert.":r.s==="nodevice"?"No phone is registered for this person.":"Alert failed: "+r.err)}
+const closeM=()=>{$("#mo").innerHTML=""};
+function editF(id){const f=id?findF(id):{name:"",kind:"teacher"};
+ $("#mo").innerHTML=`<div class="ov" onclick="closeM()"><div class="md wide" onclick="event.stopPropagation()"><h2>${id?"Edit":"Add"} faculty or office</h2><div><label>Name (teachers: LAST NAME, FIRST NAME)</label><input id="ef_n" value="${esc(f.name)}" maxlength="120" placeholder="LAST NAME, FIRST NAME (e.g. DELA CRUZ, MARIA)"></div><div><label>Type</label><select id="ef_k"><option value="teacher" ${f.kind==="teacher"?"selected":""}>Teacher</option><option value="office" ${f.kind==="office"?"selected":""}>Office</option></select></div><div class="err" id="ferr"></div><div class="row"><button type="button" class="btn" onclick="saveF(${id})">Save</button><button type="button" class="btn ghost" onclick="closeM()">Cancel</button></div></div></div>`}
+async function saveF(id){const k=$("#ef_k").value,e=m=>{$("#ferr").textContent=m};let n=$("#ef_n").value.trim();
+ if(!n)return e("Enter a name.");if(k==="teacher"){if(!n.includes(",")||n.split(",")[1].trim()==="")return e("Teachers: write LAST NAME, FIRST NAME (with a comma).");n=n.toUpperCase()}
+ e("Saving…");const row={name:n,kind:k},r=id?await sb.from("faculty").update(row).eq("id",id):await sb.from("faculty").insert(row);
+ if(r.error)return e(r.error.message);closeM();await refresh();toast("Saved.")}
+async function testF(id){const f=findF(id);if(!f)return;toast("Sending test…");const r=await alertFn({test_faculty_id:id});await refresh();
+ toast(r.s==="accepted"?`Test accepted by the push service for ${r.sent} phone${r.sent>1?"s":""}. Check the phone.`:r.s==="nodevice"?"No phone is registered for this person yet.":"Test failed: "+r.err)}
+async function rep(id,k){const r=await sb.rpc("reply_notification",{p_id:id,p_reply:k});if(r.error)return toast("Could not send: "+r.error.message);await refresh();toast("Sent to the guard: "+REPLY[k])}
+async function ackN(id){const r=await sb.rpc("ack_notification",{p_id:id});if(r.error)return toast("Could not acknowledge: "+r.error.message);await refresh();toast("Acknowledged.")}
+let ipEv=null,rep_t=null,repBusy=false;
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();ipEv=e;const b=$("#ib");if(b)b.classList.remove("hid")});
+window.addEventListener("appinstalled",()=>{ipEv=null;toast("App installed. Open DHS Alerts from the home screen.")});
+async function installApp(){if(!ipEv)return toast("Open the Chrome menu (three dots) and tap Install app.");ipEv.prompt();await ipEv.userChoice;ipEv=null;const b=$("#ib");if(b)b.classList.add("hid")}
+const b64u=s=>{s=s.replace(/-/g,"+").replace(/_/g,"/");return Uint8Array.from(atob(s+"=".repeat((4-s.length%4)%4)),c=>c.charCodeAt(0))};
+const swReady=()=>Promise.race([navigator.serviceWorker.ready,new Promise((_,r)=>setTimeout(()=>r(new Error("The background service is not running. Open the site over https (GitHub Pages).")),4000))]);
+async function enablePush(){
+ if(!("serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window))return toast("This browser cannot receive phone alerts. Use Chrome on Android.");
+ if(Notification.permission==="denied")return toast("Notifications are blocked. Allow them for this app in the phone settings, then try again.");
+ try{const perm=await Notification.requestPermission();if(perm!=="granted")return toast("Permission was not granted.");
+  const reg=await swReady(),k=await sb.functions.invoke("send-alert",{body:{action:"vapid_public"}});if(k.error)return toast(await fnErr(k.error));
+  const old=await reg.pushManager.getSubscription();if(old)await old.unsubscribe();
+  const j=(await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64u(k.data.key)})).toJSON();
+  const r=await sb.rpc("register_push",{p_endpoint:j.endpoint,p_p256dh:j.keys.p256dh,p_auth:j.keys.auth,p_ua:navigator.userAgent});if(r.error)return toast("Could not save this phone: "+r.error.message);
+  await refresh();toast("Alerts are on for this phone. Press Send test to check.")}catch(e){toast("Could not turn on alerts: "+(e.message||e))}}
+async function disablePush(){try{const s=await(await swReady()).pushManager.getSubscription();if(s){await sb.rpc("unregister_push",{p_endpoint:s.endpoint});await s.unsubscribe()}await refresh();toast("Alerts turned off on this phone.")}catch(e){toast("Could not turn off: "+(e.message||e))}}
+async function pushStatus(){let m="This phone is not set up yet.";
+ try{if(!("serviceWorker" in navigator&&"PushManager" in window))m="This browser cannot receive alerts. Use Chrome on Android.";else if(Notification.permission==="denied")m="Notifications are blocked in the phone settings.";else{const s=await(await swReady()).pushManager.getSubscription();if(s&&Notification.permission==="granted")m="Alerts are ON for this phone."}}catch(x){m=x.message}
+ const el=$("#ps");if(el)el.textContent=m}
+// Auto-resend: while a guard/admin page is open, re-send an unanswered urgent alert every 2 minutes, at most 3 times. The server enforces the same limits.
+function startRepeat(){clearInterval(rep_t);if(!S.user||S.user.role==="teacher")return;
+ rep_t=setInterval(async()=>{if(repBusy||!sb)return;repBusy=true;
+  try{let sent=false;for(const n of unackUrgent())if(n.push.s==="accepted"&&n.reps<3&&Date.now()-new Date(n.push.at)>=12e4){await sb.functions.invoke("send-alert",{body:{notification_id:n.id,resend:true,auto:true}});sent=true}
+   if(sent){await loadAll();soft()}}catch(e){}finally{repBusy=false}},30000)}
+function setL(l){LANG=l;sv("dhs_lang",l);render()}
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+boot();
+</script></body></html>
