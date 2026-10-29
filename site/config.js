@@ -3,6 +3,6 @@
 // NEVER put a "secret" or "service_role" key in this file.
 window.DHS_CONFIG = {
   url: "https://dhs-visitors.supabase.co",   // Supabase > Project Settings > API > Project URL
-  key: "sb_publishable_qudmsjnhstvlzvyiqwej",            // Supabase > Project Settings > API Keys > Publishable key
+  key: "sb_publishable_RDA7nwFxDyMgvfE5CoA-gA_wYhlKmTY",            // Supabase > Project Settings > API Keys > Publishable key
   emailDomain: "dhs-visitors.app"            // turns a staff ID into an internal login. No email is ever sent. Change it only if sign-up says "invalid email".
 };
